@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+
+  cms:
+    image: chembience/cms:${CHEMBIENCE_BUILD_LABEL}
+    build:
+      context: .
+      args:
+        build_label: ${CHEMBIENCE_BUILD_LABEL}
+
+
+
+
