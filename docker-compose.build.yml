@@ -3,7 +3,7 @@ version: '3'
 services:
 
   cms:
-    image: chembience/cms:${CHEMBIENCE_BUILD_LABEL}
+    image: chembience/wagtail-cms:${CHEMBIENCE_BUILD_LABEL}
     build:
       context: .
       args:
