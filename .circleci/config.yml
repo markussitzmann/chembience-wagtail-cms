@@ -12,6 +12,7 @@ jobs:
           working_directory: .
           command: |
             docker system prune -f --volumes
+            ./env-prepare
 
   wagtail-cms:
     machine:
