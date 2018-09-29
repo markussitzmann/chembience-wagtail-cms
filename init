@@ -2,8 +2,6 @@
 
 ./env-prepare
 
+echo 'Done.'
 
-
-
-
-
+exit 0
