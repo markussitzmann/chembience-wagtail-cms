@@ -23,21 +23,10 @@ services:
       - APP_VIRTUAL_HOSTNAME=${DJANGO_APP_VIRTUAL_HOSTNAME}
       - VIRTUAL_HOST=${DJANGO_APP_VIRTUAL_HOSTNAME}
     depends_on:
-      - proxy
       - cmsdb
     entrypoint: ["/home/app/docker-entrypoint.sh"]
     command: ["/home/nginx/run.sh"]
 
-  proxy:
-    image: chembience/proxy:${CHEMBIENCE_BUILD_LABEL}
-    container_name: chembience-proxy
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - "${CHEMBIENCE_SPHERE}:/home/sphere"
-    ports:
-      - "${PROXY_EXTERNAL_PORT}:80"
-    networks:
-      - sphere
 
   cmsdb:
     image: chembience/db:${CHEMBIENCE_BUILD_LABEL}
