@@ -24,6 +24,7 @@ jobs:
           name: build chembience wagtail cms
           working_directory: .
           command: |
+            ./env-prepare
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker-compose -f docker-compose.build.yml pull --ignore-pull-failures
             docker-compose -f docker-compose.build.yml build
