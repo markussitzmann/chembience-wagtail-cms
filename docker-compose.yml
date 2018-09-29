@@ -22,6 +22,9 @@ services:
       - CHEMBIENCE_DB_PASSWORD
       - APP_VIRTUAL_HOSTNAME=${DJANGO_APP_VIRTUAL_HOSTNAME}
       - VIRTUAL_HOST=${DJANGO_APP_VIRTUAL_HOSTNAME}
+      - LETSENCRYPT_HOST
+      - LETSENCRYPT_EMAIL
+      - LETSENCRYPT_TEST
     depends_on:
       - cmsdb
     entrypoint: ["/home/app/docker-entrypoint.sh"]
