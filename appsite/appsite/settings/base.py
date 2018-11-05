@@ -158,8 +158,8 @@ WAGTAIL_SITE_NAME = "appsite"
 
 WAGTAILSEARCH_BACKENDS = {
     'default': {
-        'BACKEND': 'wagtail.search.backends.elasticsearch2',
-        'URLS': ['http://cmsindex:9200'],
+        'BACKEND': 'wagtail.search.backends.elasticsearch6',
+        'URLS': ['http://cmsindex1:9200'],
         'INDEX': 'wagtail',
         'TIMEOUT': 5,
         'OPTIONS': {},
