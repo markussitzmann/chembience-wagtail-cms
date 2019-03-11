@@ -1,13 +1,12 @@
-ARG build_label
-FROM chembience/django:$build_label
-LABEL maintainer="markussitzmann@gmail.com "
+ARG build_tag
+FROM chembience/django:$build_tag
+LABEL maintainer="markus.sitzmann@gmail.com "
 
 ENV PATH /opt/conda/bin:$PATH
+ENV CONDA_PY 37
 
 COPY nginx /home/nginx
 COPY requirements.txt /
 
-#RUN /bin/bash -c "source activate chembience" && \
-#    CONDA_PY=37 conda install --yes --file requirements.txt
-
-RUN pip install -r requirements.txt
+RUN /bin/bash -c "source activate chembience" && \
+    CONDA_PY=$CONDA_PY conda install --yes --file requirements.txt

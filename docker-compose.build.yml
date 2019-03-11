@@ -3,11 +3,11 @@ version: '3'
 services:
 
   cms:
-    image: chembience/wagtail-cms:${CHEMBIENCE_BUILD_LABEL}
+    image: chembience/wagtail-cms:${DJANGO_APP_VERSION}
     build:
       context: .
       args:
-        build_label: ${CHEMBIENCE_BUILD_LABEL}
+        build_tag: ${CHEMBIENCE_VERSION}
 
 
 

@@ -3,12 +3,12 @@ version: '3'
 services:
 
   cms:
-    image: chembience/wagtail-cms:${CHEMBIENCE_BUILD_LABEL}
+    image: chembience/wagtail-cms:${DJANGO_APP_VERSION}
     container_name: chembience-wagtail-cms
     volumes:
-      - "${DJANGO_APP_HOME}:/home/app"
-      - "${CHEMBIENCE_SPHERE}:/home/sphere"
-      - "${CHEMBIENCE_SHARE}:/share"
+      - ${DJANGO_APP_HOME}:/home/app
+      - ${CHEMBIENCE_SPHERE}:/home/sphere
+      - ${CHEMBIENCE_SHARE}:/share
     ports:
        - ${DJANGO_APP_CONNECTION_PORT}:80
     networks:
@@ -32,7 +32,7 @@ services:
 
 
   cmsdb:
-    image: chembience/db:${CHEMBIENCE_BUILD_LABEL}
+    image: chembience/db:${CHEMBIENCE_VERSION}
     container_name: chembience-cmsdb
     volumes:
       - cmsdb_volume:/var/lib/postgresql
@@ -91,11 +91,6 @@ services:
 
 volumes:
   cmsdb_volume:
-  cmsindex1_volume:
-    driver: local
-  cmsindex2_volume:
-    driver: local
 
 networks:
   sphere:
-
